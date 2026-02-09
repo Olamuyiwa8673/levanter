@@ -11,7 +11,8 @@
     "reconnect": "[{0}] reconnecting...({1})",
     "reconnect_after": "[{0}] reconnect after 1 minutes",
     "another_login": "[{0}] session logined on another device.",
-    "error_message": "```---ERROR REPORT---\n\nVersion : {0}\nMessage : {1}\nError   : {2}\nJid     : {3}\ncommand : {4}\nPlatform : {5}```\n\n```-----``` *Made by LyFE with ❣* ```-----```",
+    "error_message": "```---ERROR REPORT---\\n\\nVersion : {0}\\nMessage : {1}\\nError   : {2}\\nJid     : {3}\\ncommand : {4}\\nPlatform : {5}```\\n\\n```-----``` *Made by LyFE with ❣* ```-----```",
+    "yt_auth_required": "Failed to download: YouTube requires authentication.\\n\\n*Solutions:*\\n1. *Google Auth (Recommended):* Use `.gauth auth` to link your Google account.\\n2. *YT_COOKIE:* Set the `YT_COOKIE` environment variable.\\nWiki: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\\n\\n*Error:* {0}",
     "deleted_message": "           deletedMessage",
     "install_external_plugin": "[{0}] Installing External plugins...",
     "installed_external_plugin": "[{0}] External Plugins Installed",
@@ -599,7 +600,8 @@
       "desc": "Displays the profile picture and additional information (e.g., about, status) of a user or group."
     },
     "gjid": {
-      "desc": "Lists all group JIDs along with their group names."
+      "desc": "Lists all group JIDs along with their group names.",
+      "item": "*{0}. {1}*\n{2}\n"
     },
     "qr": {
       "usage": "Example: qr test  OR  reply to a QR image with qr",
@@ -617,8 +619,8 @@
       "error": "Missing API key or image. Please set your API key and reply to an image."
     },
     "setschedule": {
-      "usage": "> *Example :*\n- setschedule jid,min-hour-day-month (in 24 hour format, day and month optional)\n- setschedule 91987654321@s.whatsapp.net, 9-9-13-8\n- setschedule 91987654321@s.whatsapp.net, 0-10 (send message daily at 10 am)\n- setschedule 91987654321@s.whatsapp.net, 0-10, once (send message at 10 am, one time)",
-      "desc": "Schedule a message to be sent automatically at a specified time. Provide the target JID(s) and time (in minutes-hour-day-month format; day and month are optional). Reply to the message you want to schedule.",
+      "usage": "> *Example :*\n- setschedule jid,min-hour-day-month (in 24 hour format, day and month optional)\n- setschedule tomorrow at 10am (Natural Language Support)\n- setschedule every day at 10am (Repeating)\n- setschedule 0-10 (Defaults to 'once' for current chat)",
+      "desc": "Schedule a message using natural language (e.g., 'tomorrow at 10am') or cron-like format. Defaults to 'once' for the current chat.",
       "invalid": "Invalid schedule format or time. Please follow one of the examples provided.",
       "no_reply": "Please reply to the message that you want to schedule for sending.",
       "scheduled": "_Successfully scheduled to send at_ *{0}* _in_ @{1}."
@@ -695,8 +697,8 @@
       "desc": "Tag members in the group based on your choice. Use 'all' to mention every member, 'admin' to mention only group admins, 'notadmin' to mention non-admin members, or provide a custom message to be sent along with the mentions."
     },
     "tictactoe": {
-      "usage": "Example: tictactoe <opponent_jid> OR tictactoe restart <opponent_jid> OR tictactoe end",
-      "desc": "Play a TicTacToe game against an opponent. Challenge a user by mentioning them, replying to their message, or specifying their JID. Use 'tictactoe end' to finish the game and 'tictactoe restart <opponent_jid>' to restart with a new opponent.",
+      "usage": "Example: tictactoe <opponent_jid> OR tictactoe normal <opponent_jid> OR tictactoe restart <opponent_jid> OR tictactoe end\nDefault mode is infinite, use 'tictactoe normal' for normal mode.",
+      "desc": "Play a TicTacToe game against an opponent. Challenge a user by mentioning them, replying to their message, or specifying their JID. Use 'tictactoe end' to finish the game and 'tictactoe restart <opponent_jid>' to restart with a new opponent. Default mode is infinite, use 'tictactoe normal' for normal mode.",
       "choose_opponent": "Please choose an opponent by replying to a message or mentioning a user. You cannot play against yourself.",
       "game_ended": "Game ended.",
       "game_restarted": "Game restarted with the new opponent.",
@@ -781,24 +783,25 @@
       "warn_default": "⚠️ Warning {0}! {1}/{2} warnings remaining."
     },
     "wcg": {
-      "usage": "Examples:\n- wcg start (force start the word chain game)\n- wcg end (end the current game)\n- wcg <word> (play by continuing the word chain)",
-      "desc": "Word Chain Game: Participate by providing a word that continues the chain. Use 'wcg start' to force start a new game or 'wcg end' to stop the current game.",
+      "usage": "Examples:\n- wcg start (force start the word chain game)\n- wcg end (end the current game)\nDefault mode is easy.",
+      "desc": "Word Chain Game: continue the word chain by submitting a word. use 'wcg start' to force start and 'wcg end' to stop.",
       "game_ends": "Game Ends",
-      "already_used": "_Already Used this Word!_",
-      "not_starting_with": "_Not Starting with {0}_",
-      "length_limit": "_This word length is less than {0}_",
-      "not_in_list": "_This word is not in my words list_",
-      "turn_info": "🎲Turn : @{0}\n🙌Next : @{1}\n🆎Your word must start with *{2}* and include at least *{3}* letters\n🏆Players remaining : {4}/{5}\n⏳You have *{6}s* to answer\n📝Total words : {7}",
-      "timeout": "@{0} ran out of time! They're out! 🚫",
-      "winner": "@{0} Won 🏆\nWords : *{1}*\nLongest word : *{2} ({3})* by @{4} 📚\nTime : *{5}* ⏱️",
-      "joined": "@{0} Joined 👏",
-      "starting": "🎮 Game starting...\n👥 Needs 2 or more players 🙋‍♂️🙋‍♀️\n⏳ 60 seconds left to join ⏳\n🧩 Mode {0}",
+      "already_used": "_This word is already used!_",
+      "not_starting_with": "_{0} is not starting with_ {1}",
+      "length_limit": "_This word is below {0} length_",
+      "not_in_list": "_This word is not in my list_",
+      "turn_info": "🎲Turn : @{0}\n🙌Next : @{1}\n🆎Starts with {2} (at least {3} letters)\n🏆Players left : {4}/{5}\n⏳ You have *{6}* seconds to reply\n📝Total words : {7}",
+      "timeout": "Time out @{0}! You are out! 🚫",
+      "winner": "@{0} won the game 🏆\nWords : *{1}*\nLongest word : *{2} ({3})* by @{4} 📚\nTime : *{5}* ⏱️",
+      "joined": "@{0} joined 👏",
+      "starting": "🎮 Game starting...\n👥 Need 2 or more players\n⏳ You have 60 seconds to join ⏳\n🧩 Mode {0}",
       "starts_in": "🎮 Game starts in {0} seconds ⏳\nType *join* to play 🙋‍♂️🙋‍♀️\n🧩 Mode {1}{2}",
       "players_count": "\n\n👥 {0} players joined.",
-      "terminated": "_Not enough players. Game terminated._"
+      "terminated": "_Not enough players to start. Game terminated._",
+      "mode_update": "_WCG mode updated to {0}_"
     },
     "wrg": {
-      "usage": "Examples:\n- wrg start (force start the random word game)\n- wrg end (end the current game)\n- wrg <word> (play by submitting a word)",
+      "usage": "Examples:\n- wrg start (force start the random word game)\n- wrg hard (start in hard mode)\n- wrg easy (start in easy mode)\n- wrg end (end the current game)",
       "desc": "Random Word Game: Engage in a game where you submit words in response to a random prompt. Use 'wrg start' to begin a new game or 'wrg end' to finish the game."
     },
     "yts": {
@@ -849,9 +852,9 @@
       "short_id_info": "\n\n*Note:* You only need to enter the first 2-4 characters of the ID for the delete command."
     },
     "gauth": {
-      "desc": "Manage Google Authentication (Authenticate, Import, Logout, Status)",
-      "usage": "*Google Auth Commands:*\n\n- `.gauth auth` — Start the authentication process.\n- `.gauth code <url_or_code>` — Validate the authentication code.\n- `.gauth import` — Import `credentials.json` (Reply to the file).\n- `.gauth status` — Check current authentication status.\n- `.gauth logout` — Clear credentials and tokens for this session.",
-      "prompt": "*Google Authentication Setup Guide:*\n\n1. *Create Project:* Go to https://console.cloud.google.com/, click \"Select a project\" > \"New Project\", name it \"Levanter\" and click \"Create\".\n2. *Enable APIs:* Go to \"APIs & Services\" > \"Library\". Search and enable both \"Google Drive API\" and \"Google Calendar API\".\n3. *OAuth Consent:* Go to \"APIs & Services\" > \"OAuth consent screen\". Choose \"External\", fill required fields, and in the \"Audience\" section, add your email to \"Test users\" (MANDATORY).\n4. *Credentials:* Go to \"APIs & Services\" > \"Credentials\". Click \"Create Credentials\" > \"OAuth client ID\". Select \"Desktop app\" as the application type, name it, and click \"Create\".\n5. *Download:* Beside your new Client ID, click the Download (JSON) icon. Save it and use `.gauth import` by replying to the file.\n6. *Authorize:* Now click the link below to authorize:\n{0}\n\n7. *Complete:* Log in, accept the \"Unverified app\" warning (Click \"Advanced\" > \"Go to Levanter\"), copy the full URL from the address bar after redirect, and send:\n`.gauth code <copied_url>`",
+      "desc": "Manage Google Authentication (Authenticate, Import, Logout, Status). Optional for YouTube but required for premium features.",
+      "usage": "*Google Auth Commands:*\n\n- `.gauth auth` — Start the authentication process.\n- `.gauth code <url_or_code>` — Validate the authentication code.\n- `.gauth import` — Import `credentials.json` (Reply to the file).\n- `.gauth status` — Check current authentication status.\n- `.gauth logout` — Clear credentials and tokens for this session.\n\n*Note:* Google Auth is optional for general YouTube features but required for age-restricted videos and Google Drive/Calendar/Tasks integrations.",
+      "prompt": "*Google Authentication Setup Guide:*\n\n1. *Create Project:* Go to https://console.cloud.google.com/, click \"Select a project\" > \"New Project\", name it \"Levanter\" and click \"Create\".\n2. *Enable APIs:* Go to \"APIs & Services\" > \"Library\". Search and enable \"Google Drive API\", \"Google Calendar API\" and \"Google Tasks API\".\n3. *OAuth Consent:* Go to \"APIs & Services\" > \"OAuth consent screen\". Choose \"External\", fill required fields, and in the \"Audience\" section, add your email to \"Test users\" (MANDATORY).\n4. *Credentials:* Go to \"APIs & Services\" > \"Credentials\". Click \"Create Credentials\" > \"OAuth client ID\". Select \"Desktop app\" as the application type, name it, and click \"Create\".\n5. *Download:* Beside your new Client ID, click the Download (JSON) icon. Save it and use `.gauth import` by replying to the file.\n6. *Authorize:* Now click the link below to authorize:\n{0}\n\n7. *Complete:* Log in, accept the \"Unverified app\" warning (Click \"Advanced\" > \"Go to Levanter\"), copy the full URL from the bar after redirect, and send:\n`.gauth code <copied_url>`",
       "success": "Authentication successful!",
       "import_success": "`credentials.json` imported successfully! Now use `.gauth auth` to authorize.",
       "import_reply": "Please reply to a `credentials.json` file.",
@@ -872,6 +875,19 @@
       "error": "*Error:* {0}",
       "url_prompt": "Please provide a valid URL, tag a media message, or use subcommands: list, del <id>, dl <id>.\nExample: `gupload list`",
       "short_id_info": "\n\n*Note:* You only need to enter the first 2-4 characters of the ID for download or delete commands."
+    },
+    "task": {
+      "desc": "Manage your Google Tasks",
+      "usage": "Usage: task <list | list-lists | list-switch <name> | add <text> | del <id> | done <id> | update <id> <text> | <text>>",
+      "added": "Task added: *{0}*\nDue: {1}",
+      "deleted": "Task deleted.",
+      "updated": "Task *{0}* marked as *{1}*",
+      "list_empty": "No tasks found.",
+      "list_header": "📝 *Tasks ({0})*:\n",
+      "not_found": "Task not found.",
+      "auth_required": "Please authenticate using *.gauth auth* and enable Google Tasks permissions.",
+      "list_lists": "📝 *Task Lists*:\n",
+      "switched": "Switched default task list to *{0}*."
     }
   }
 }

@@ -11,7 +11,7 @@
     "reconnect": "[{0}] Dobara connect horha...({1})",
     "reconnect_after": "[{0}] Ik mint ky baad dobara start hoga",
     "another_login": "[{0}] Ye session kisi doosray device par login hai.",
-    "error_message": "```---ERROR REPORT---\n\nVersion : {0}\nMessage : {1}\nError   : {2}\nJid     : {3}\ncommand : {4}\nPlatform : {5}```\n\n```-----``` *Made by LyFE with ❣* ```-----```",
+    "error_message": "```---ERROR REPORT---\\n\\nVersion : {0}\\nMessage : {1}\\nError   : {2}\\nJid     : {3}\\ncommand : {4}\\nPlatform : {5}```\\n\\n```-----``` *Made by LyFE with ❣* ```-----```",
     "deleted_message": "           deletedMessage",
     "install_external_plugin": "[{0}] Installing External plugins...",
     "installed_external_plugin": "[{0}] External Plugins Install ho rhe",
@@ -41,7 +41,8 @@
     "lang_not_supported": "' {0} ' zuban abhi supported nahi hai, default zuban par switch kar rahay hain.",
     "screenshot_error": "aik error aya",
     "id_missing": "ID missing hai",
-    "not_on_whatsapp": "{0} WhatsApp par nahi hai."
+    "not_on_whatsapp": "{0} WhatsApp par nahi hai.",
+    "yt_auth_required": "ڈاؤن لوڈ ناکام رہا: YouTube کو تصدیق (Authentication) کی ضرورت ہے۔\\n\\n*حل:*\\n1. *Google Auth (تجویز کردہ):* اپنا Google اکاؤنٹ منسلک کرنے کے لیے `.gauth auth` استعمال کریں۔\\n2. *YT_COOKIE:* `YT_COOKIE` انوائرمنٹ ویری ایبل سیٹ کریں۔\\nWiki: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\\n\\n*Error:* {0}"
   },
   "plugins": {
     "common": {
@@ -599,7 +600,8 @@
       "desc": "*_User ya group ka profile picture aur additional maloomat (e.g., about, status) dikhata hai._*"
     },
     "gjid": {
-      "desc": "*Sabhi groups ke JIDs aur unke names ki list dikhata hai.*"
+      "desc": "*Sabhi groups ke JIDs aur unke names ki list dikhata hai.*",
+      "item": "*{0}. {1}*\n{2}\n"
     },
     "qr": {
       "usage": "*Misaal:* *_qr test YA reply karein kisi QR image par qr likh kar_*",
@@ -695,8 +697,8 @@
       "desc": "_Group members ko tag karein apni pasand ke mutabiq. 'all' ka use sabhi members ko mention karne ke liye karein, 'admin' sirf group admins ko mention karega, 'notadmin' non-admin members ko mention karega, ya phir ek custom message bhejne ke liye apni message likhein_"
     },
     "tictactoe": {
-      "usage": "*Misaal:* _tictactoe <opponent_jid> YA tictactoe restart <opponent_jid> YA tictactoe end_",
-      "desc": "> TicTacToe game khelein kisi opponent ke against. Kisi user ko challenge karne ke liye unka mention karein, unke message par reply karein, ya unka JID specify karein. 'tictactoe end' game khatam karne ke liye use karein aur 'tictactoe restart <opponent_jid>' naye opponent ke sath game restart karne ke liye.",
+      "usage": "*Misaal:* _tictactoe <opponent_jid> YA tictactoe normal <opponent_jid> YA tictactoe restart <opponent_jid> YA tictactoe end_\nDefault mode infinite hai, normal mode ke liye 'tictactoe normal' use karein.",
+      "desc": "> TicTacToe game khelein kisi opponent ke against. Kisi user ko challenge karne ke liye unka mention karein, unke message par reply karein, ya unka JID specify karein. 'tictactoe end' game khatam karne ke liye use karein aur 'tictactoe restart <opponent_jid>' naye opponent ke sath game restart karne ke liye. Default mode infinite hai, normal mode ke liye 'tictactoe normal' use karein.",
       "choose_opponent": "_Kisi opponent ko choose karein message par reply karke ya user ko mention karke. Aap khud se nahi khel sakte._",
       "game_ended": "_Game khatam._",
       "game_restarted": "_Game naye opponent ke sath restart ho gaya hai._",
@@ -781,25 +783,26 @@
       "warn_default": "⚠️ Warning {0}! {1}/{2} warnings baqi hain."
     },
     "wcg": {
-      "usage": "*Misaal:* \n- wcg start (force start the word chain game)\n- wcg end (end the current game)\n- wcg <word> (play by continuing the word chain)",
-      "desc": "*_Word Chain Game: Ek word provide karein jo chain continue kare. 'wcg start' ka use naye game ko force start karne ke liye karein ya 'wcg end' ka use game stop karne ke liye._*",
-      "game_ends": "Game Khatam",
-      "already_used": "_Ye word pehle hi use ho chuka hai!_",
-      "not_starting_with": "_{0} se shuru nahi ho raha_",
+      "usage": "*Misaal:* \n- wcg start (force start the word chain game)\n- wcg end (end the current game)\nDefault mode easy hai.",
+      "desc": "Word Chain Game: continue the word chain by submitting a word. use 'wcg start' to force start and 'wcg end' to stop.",
+      "game_ends": "Game Khatm!",
+      "already_used": "_Ye word pehle use ho gaya hai!_",
+      "not_starting_with": "_{0} se shuru nahi ho raha_ {1}",
       "length_limit": "_Is word ki length {0} se kam hai_",
-      "not_in_list": "_Ye word meri word list mein nahi hai_",
-      "turn_info": "🎲Bari : @{0}\n🙌Agla : @{1}\n🆎Aapka word *{2}* se shuru hona chahiye aur kam se kam *{3}* letters hone chahiyain\n🏆Baqi players : {4}/{5}\n⏳Aapke paas answer dene ke liye *{6}s* hain\n📝Total words : {7}",
-      "timeout": "إنتهى وقت @{0}! Wo game se bahar hain! 🚫",
-      "winner": "@{0} ne Jeeta 🏆\nWords : *{1}*\nSabse lamba word : *{2} ({3})* @{4} ki taraf se 📚\nWaqt : *{5}* ⏱️",
-      "joined": "@{0} ne Join kiya 👏",
-      "starting": "🎮 Game shuru ho rahi hai...\n👥 2 ya zyada players chahiyain 🙋‍♂️🙋‍♀️\n⏳ Join karne ke liye 60 seconds hain ⏳\n🧩 Mode {0}",
-      "starts_in": "🎮 Game {0} seconds mein shuru hogi ⏳\nKhelne ke liye *join* type karain 🙋‍♂️🙋‍♀️\n🧩 Mode {1}{2}",
-      "players_count": "\n\n👥 {0} players ne join kiya.",
-      "terminated": "_Zyada players nahi milay. Game band ho gaya._"
+      "not_in_list": "_Ye word meri list mein nahi hai_",
+      "turn_info": "🎲Baari : @{0}\n🙌Agla : @{1}\n🆎{2} se shuru hone wala word bolen (kam se kam {3} letters)\n🏆Players baki hain : {4}/{5}\n⏳ Jawab dene ke liye aapke paas *{6}* seconds hain\n📝Total words : {7}",
+      "timeout": "Time khatm @{0}! Aap game se bahar hain! 🚫",
+      "winner": "@{0} game jeet gaya 🏆\nWords : *{1}*\nSabse lamba word : *{2} ({3})* by @{4} 📚\nTime : *{5}* ⏱️",
+      "joined": "@{0} shamil ho gaya 👏",
+      "starting": "🎮 Game shuru ho rahi hai...\n👥 2 ya usse zyada players ki zaroorat hai\n⏳ Shamil hone ke liye 60 seconds hain ⏳\n🧩 Mode {0}",
+      "starts_in": "🎮 Game {0} seconds mein shuru ho jayegi ⏳\nKhelne ke liye *join* likhen 🙋‍♂️🙋‍♀️\n🧩 Mode {1}{2}",
+      "players_count": "\n\n👥 {0} کھلاڑی شامل ہو گئے۔",
+      "terminated": "_شروع کرنے کے لیے کافی کھلاڑی نہیں ہیں۔ گیم ختم کر دی گئی۔_",
+      "mode_update": "_WCG موڈ {0} پر اپ ڈیٹ کر دیا گیا ہے_"
     },
     "wrg": {
-      "usage": "Misaal:\n- wrg start (Random Word Game ko force start karein)\n- wrg end (Current game ko end karein)\n- wrg <word> (Random prompt ka jawab ek word se dein)",
-      "desc": "_Random Word Game: Aik game jisme aap ek random prompt ka jawab ek word se dete hain. 'wrg start' ka use naye game ko shuru karne ke liye karein ya 'wrg end' ka use game khatam karne ke liye._"
+      "usage": "Misaal:\n- wrg start (Random Word Game ko force start karein)\n- wrg hard (Hard mode mein shuru karein)\n- wrg easy (Easy mode mein shuru karein)\n- wrg end (Current game ko end karein)",
+      "desc": "Random Word Game: Random prompt ke response mein word submit karke khelo. 'wrg start' use karke naya game shuru karo ya 'wrg end' use karke current game khatam karo."
     },
     "yts": {
       "usage": "*Misaal:* yts khaab",
@@ -849,9 +852,9 @@
       "short_id_info": "\n\n*نوٹ:* ڈیلیٹ کمانڈ کے لیے آپ کو آئی ڈی کے صرف پہلے 2-4 حروف درج کرنے کی ضرورت ہے۔"
     },
     "gauth": {
-      "desc": "Google Authentication (Authenticate, Import, Logout, Status) ko manage karein",
-      "usage": "*Google Auth Commands:*\n\n- `.gauth auth` — Authentication shuru karein.\n- `.gauth code <url_or_code>` — Authentication code validate karein.\n- `.gauth import` — `credentials.json` import karein (file ko reply karein).\n- `.gauth status` — Current authentication status check karein.\n- `.gauth logout` — Is session ke liye credentials aur tokens clear karein.",
-      "prompt": "*Google Authentication Setup Guide:*\n\n1. *Project Banayein:* https://console.cloud.google.com/ par jayein, \"Select a project\" > \"New Project\" par click karein, naam \"Levanter\" rakhein aur \"Create\" karein.\n2. *APIs Enable Karein:* \"APIs & Services\" > \"Library\" par jayein. \"Google Drive API\" aur \"Google Calendar API\" dono search karke enable karein.\n3. *OAuth Consent:* \"APIs & Services\" > \"OAuth consent screen\" par jayein. \"External\" chunein, zaroori fields bharein, aur \"Audience\" section mein \"Test users\" mein apna email add karein (ZAROORI).\n4. *Credentials:* \"APIs & Services\" > \"Credentials\" par jayein. \"Create Credentials\" > \"OAuth client ID\" par click karein. \"Desktop app\" chunein, naam dein, aur \"Create\" karein.\n5. *Download:* Apne naye Client ID ke paas Download (JSON) icon par click karein. Isse save karein aur file ko reply karke `.gauth import` ka istemal karein.\n6. *Authorize:* Ab authorize karne ke liye neeche diye gaye link par click karein:\n{0}\n\n7. *Complete:* Login karein, \"Unverified app\" warning accept karein (\"Advanced\" > \"Go to Levanter\" par click karke), redirect ke baad address bar se pura URL copy karein, aur bhejein:\n`.gauth code <copied_url>`",
+      "desc": "Google API کی تصدیق کا نظم کریں (جیسے YouTube کی عمر کی پابندی، Google Drive، کیلنڈر، اور ٹاسکس)۔",
+      "usage": "*Google Auth کمانڈز:*\\n\\n- `.gauth auth` — تصدیق کا عمل شروع کریں۔\\n- `.gauth code <url_or_code>` — تصدیقی کوڈ کی توثیق کریں۔\\n- `.gauth import` — `credentials.json` امپورٹ کریں (فائل کو جواب دیں)۔\\n- `.gauth status` — موجودہ تصدیقی حیثیت چیک کریں۔\\n- `.gauth logout` — اس سیشن کے لیے اسناد اور ٹوکن صاف کریں۔\\n\\n*نوٹ:* عام YouTube فیچرز کے لیے Google Auth اختیاری ہے لیکن عمر کی پابندی والی ویڈیوز اور Google Drive/کیلنڈر/ٹاسکس کے لیے ضروری ہے۔",
+      "prompt": "*Google Authentication Setup Guide:*\n\n1. *Project Banayein:* https://console.cloud.google.com/ par jayein, \"Select a project\" > \"New Project\" par click karein, naam \"Levanter\" rakhein aur \"Create\" karein.\n2. *APIs Enable Karein:* \"APIs & Services\" > \"Library\" par jayein. \"Google Drive API\", \"Google Calendar API\" aur \"Google Tasks API\" search karke enable karein.\n3. *OAuth Consent:* \"APIs & Services\" > \"OAuth consent screen\" par jayein. \"External\" chunein, zaroori fields bharein, aur \"Audience\" section mein \"Test users\" mein apna email add karein (ZAROORI).\n4. *Credentials:* \"APIs & Services\" > \"Credentials\" par jayein. \"Create Credentials\" > \"OAuth client ID\" par click karein. \"Desktop app\" chunein, naam dein, aur \"Create\" karein.\n5. *Download:* Apne naye Client ID ke paas Download (JSON) icon par click karein. Isse save karein aur file ko reply karke `.gauth import` ka istemal karein.\n6. *Authorize:* Ab authorize karne ke liye neeche diye gaye link par click karein:\n{0}\n\n7. *Complete:* Login karein, \"Unverified app\" warning accept karein (\"Advanced\" > \"Go to Levanter\" par click karke), redirect ke baad address bar se pura URL copy karein, aur bhejein:\n`.gauth code <copied_url>`",
       "success": "Authentication kamyab rahi!",
       "import_success": "`credentials.json` kamyabi se import ho gaya! Ab authorize karne ke liye `.gauth auth` istimal karein.",
       "import_reply": "Baraye meharbani `credentials.json` file ko reply karein.",
@@ -872,6 +875,19 @@
       "error": "*Ghalti:* {0}",
       "url_prompt": "Baraye meharbani aik valid URL fraham karein, media message tag karein, ya subcommands istemal karein: list, del <id>, dl <id>.\nMisal: `gupload list`",
       "short_id_info": "\n\n*نوٹ:* ڈاؤن لوڈ یا ڈیلیٹ کمانڈز کے لیے آپ کو آئی ڈی کے صرف پہلے 2-4 حروف درج کرنے کی ضرورت ہے۔"
+    },
+    "task": {
+      "desc": "اپنے گوگل ٹاسکس کا انتظام کریں",
+      "usage": "استعمال: task <list | lists | switch <نام> | add <متن> | دئے گئے <آئی ڈی> | done <آئی ڈی> | update <آئی ڈی> <متن> | <متن>>",
+      "added": "ٹاسک شامل کر دیا گیا: *{0}*\nتاریخ: {1}",
+      "deleted": "ٹاسک حذف کر دیا گیا۔",
+      "updated": "ٹاسک *{0}* کو *{1}* قرار دیا گیا ہے",
+      "list_empty": "کوئی ٹاسک نہیں ملا۔",
+      "list_header": "📝 *ٹاسکس ({0})*:\n",
+      "not_found": "ٹاسک نہیں ملا۔",
+      "auth_required": "براہ کرم *.gauth auth* استعمال کر کے تصدیق کریں اور گوگل ٹاسک کی اجازتیں فعال کریں۔",
+      "list_lists": "📝 *ٹاسک لسٹس*:\n",
+      "switched": "ڈیفالٹ ٹاسک لسٹ *{0}* پر تبدیل کر دی گئی۔"
     }
   }
 }

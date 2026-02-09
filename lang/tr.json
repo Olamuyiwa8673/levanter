@@ -11,7 +11,7 @@
     "reconnect": "[{0}] yeniden bağlanıyor...({1})",
     "reconnect_after": "[{0}] 1 dakika sonra yeniden bağlan",
     "another_login": "[{0}] oturum başka bir cihazda açıldı.",
-    "error_message": "```---HATA RAPORU---\n\nSürüm : {0}\nMesaj : {1}\nHata   : {2}\nJid     : {3}\nkomut : {4}\nPlatform : {5}```\n\n```-----``` *LyFE tarafından ❣ ile yapıldı* ```-----```",
+    "error_message": "```---ERROR REPORT---\\n\\nVersion : {0}\\nMessage : {1}\\nError   : {2}\\nJid     : {3}\\ncommand : {4}\\nPlatform : {5}```\\n\\n```-----``` *Made by LyFE with ❣* ```-----```",
     "deleted_message": "           silinenMesaj",
     "install_external_plugin": "[{0}] Harici eklentiler yükleniyor...",
     "installed_external_plugin": "[{0}] Harici Eklentiler Yüklendi",
@@ -41,7 +41,8 @@
     "lang_not_supported": "' {0} ' dili henüz desteklenmiyor, varsayılan dile geçiliyor.",
     "screenshot_error": "bir hata oluştu",
     "id_missing": "kimlik eksik",
-    "not_on_whatsapp": "{0} WhatsApp'ta değil."
+    "not_on_whatsapp": "{0} WhatsApp'ta değil.",
+    "yt_auth_required": "İndirme başarısız: YouTube kimlik doğrulaması gerektiriyor.\\n\\n*Çözümler:*\\n1. *Google Auth (Önerilen):* Google hesabınızı bağlamak için `.gauth auth` komutunu kullanın.\\n2. *YT_COOKIE:* `YT_COOKIE` ortam değişkenini ayarlayın.\\nRehber: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\\n\\n*Hata:* {0}"
   },
   "plugins": {
     "common": {
@@ -599,7 +600,8 @@
       "desc": "Bir kullanıcının veya grubun profil resmini ve ek bilgilerini (hakkında, durum vb.) göster"
     },
     "gjid": {
-      "desc": "Tüm grup JID'lerini ve grup adlarını listele"
+      "desc": "Tüm grup JID'lerini ve grup adlarını listele",
+      "item": "*{0}. {1}*\n{2}\n"
     },
     "qr": {
       "usage": "Örnek: qr test  VEYA  bir QR resmine qr ile cevap verin",
@@ -695,8 +697,8 @@
       "desc": "Gruptaki üyeleri seçiminize göre etiketle. 'all' tüm üyeleri, 'admin' yalnızca yöneticileri, 'notadmin' yönetici olmayan üyeleri etiketler. Özel bir mesaj ekleyerek etiketleme yapın."
     },
     "tictactoe": {
-      "usage": "Örnek: tictactoe <rakip_jid> VEYA tictactoe restart <rakip_jid> VEYA tictactoe end",
-      "desc": "Bir rakiple XOX oyunu oyna. Bir kullanıcıyı bahsederek, mesajına cevap vererek veya JID'yi belirterek meydan okuyun. 'tictactoe end' oyunu bitirir ve 'tictactoe restart <rakip_jid>' yeni bir rakiple oyunu yeniden başlatır.",
+      "usage": "Example: tictactoe <opponent_jid> OR tictactoe normal <opponent_jid> OR tictactoe restart <opponent_jid> OR tictactoe end\nVarsayılan mod sonsuzdur, normal mod için 'tictactoe normal' kullanın.",
+      "desc": "Bir rakiple XOX oyunu oyna. Bir kullanıcıyı bahsederek, mesajına cevap vererek veya JID'yi belirterek meydan okuyun. 'tictactoe end' oyunu bitirir ve 'tictactoe restart <rakip_jid>' yeni bir rakiple oyunu yeniden başlatır. Varsayılan mod sonsuzdur, normal mod için 'tictactoe normal' kullanın.",
       "choose_opponent": "Lütfen bir rakip seçin, bir mesaja cevap vererek veya bir kullanıcıyı bahsederek. Kendinizle oynayamazsınız.",
       "game_ended": "Oyun bitti.",
       "game_restarted": "Yeni bir rakiple oyun yeniden başlatıldı.",
@@ -781,7 +783,7 @@
       "warn_default": "⚠️ Uyarı {0}! {1}/{2} uyarı hakkı kaldı."
     },
     "wcg": {
-      "usage": "Örnekler:\n- wcg start (kelime zinciri oyununu zorla başlat)\n- wcg end (mevcut oyunu bitir)\n- wcg <kelime> (kelime zincirini devam ettirerek oyna)",
+      "usage": "Örnekler:\n- wcg start (kelime zinciri oyununu zorla başlat)\n- wcg end (mevcut oyunu bitir)\nVarsayılan mod kolaydır.",
       "desc": "Kelime Zinciri Oyunu: Zinciri devam ettirerek oyuna katılın. 'wcg start' yeni bir oyun başlatır veya 'wcg end' mevcut oyunu bitirir.",
       "game_ends": "Oyun Bitti",
       "already_used": "_Bu Kelime Zaten Kullanıldı!_",
@@ -795,11 +797,12 @@
       "starting": "🎮 Oyun başlıyor...\n👥 2 veya daha fazla oyuncu gerekiyor 🙋‍♂️🙋‍♀️\n⏳ Katılmak için 60 saniye kaldı ⏳\n🧩 Mod {0}",
       "starts_in": "🎮 Oyun {0} saniye içinde başlayacak ⏳\nOynamak için *join* yazın 🙋‍♂️🙋‍♀️\n🧩 Mod {1}{2}",
       "players_count": "\n\n👥 {0} oyuncu katıldı.",
-      "terminated": "_Yeterli oyuncu yok. Oyun sonlandırıldı._"
+      "terminated": "_Başlamak için yeterli oyuncu yok. Oyun sonlandırıldı._",
+      "mode_update": "_WCG modu {0} olarak güncellendi_"
     },
     "wrg": {
-      "usage": "Örnekler:\n- wrg start (rastgele kelime oyununu zorla başlat)\n- wrg end (mevcut oyunu bitir)\n- wrg <kelime> (rastgele bir kelime göndererek oyna)",
-      "desc": "Rastgele Kelime Oyunu: Rastgele bir kelimeye cevap vererek oyuna katılın. 'wrg start' yeni bir oyun başlatır ve 'wrg end' mevcut oyunu bitirir."
+      "usage": "Örnekler:\n- wrg start (rastgele kelime oyununu zorla başlat)\n- wrg hard (zor modda başlat)\n- wrg easy (kolay modda başlat)\n- wrg end (mevcut oyunu bitir)",
+      "desc": "Rastgele Kelime Oyunu: Rastgele bir isteme yanıt olarak kelimeler gönderdiğiniz bir oyuna katılın. Yeni bir oyun başlatmak için 'wrg start', bitirmek için 'wrg end' kullanın."
     },
     "yts": {
       "usage": "Örnek: yts baymax",
@@ -849,9 +852,9 @@
       "short_id_info": "\n\n*Not:* Silme komutu için ID'nin yalnızca ilk 2-4 karakterini girmeniz yeterlidir."
     },
     "gauth": {
-      "desc": "Google Kimlik Doğrulamasını Yönet (Doğrula, İçe Aktar, Çıkış Yap, Durum)",
-      "usage": "*Google Auth Komutları:*\n\n- `.gauth auth` — Kimlik doğrulama işlemini başlat.\n- `.gauth code <url_veya_kod>` — Kimlik doğrulama kodunu doğrula.\n- `.gauth import` — `credentials.json` dosyasını içe aktar (dosyayı yanıtlayın).\n- `.gauth status` — Mevcut kimlik doğrulama durumunu kontrol et.\n- `.gauth logout` — Bu oturum için kimlik bilgilerini ve belirteçleri temizle.",
-      "prompt": "*Google Kimlik Doğrulama Kurulum Kılavuzu:*\n\n1. *Proje Oluşturun:* https://console.cloud.google.com/ adresine gidin, \"Select a project\" > \"New Project\" seçeneğine tıklayın, adını \"Levanter\" koyun ve \"Create\" butonuna basın.\n2. *APIs Etkinleştirin:* \"APIs & Services\" > \"Library\" bölümüne gidin. Hem \"Google Drive API\" hem de \"Google Calendar API\" aratıp etkinleştirin.\n3. *OAuth İzin Ekranı:* \"APIs & Services\" > \"OAuth consent screen\" bölümüne gidin. \"External\" seçin, gerekli alanları doldurun ve \"Audience\" bölümünde e-postanızı \"Test users\" kısmına ekleyin (ZORUNLU).\n4. *Kimlik Bilgileri:* \"APIs & Services\" > \"Credentials\" bölümüne gidin. \"Create Credentials\" > \"OAuth client ID\" butonuna tıklayın. Uygulama türü olarak \"Desktop app\" seçin, bir ad verin ve \"Create\" butonuna basın.\n5. *İndir:* Yeni Client ID'nizin yanındaki İndir (JSON) simgesine tıklayın. Kaydedin ve dosyayı yanıtlayarak `.gauth import` komutunu kullanın.\n6. *Yetkilendir:* Şimdi yetkilendirmek için aşağıdaki bağlantıya tıklayın:\n{0}\n\n7. *Tamamla:* Giriş yapın, \"Unverified app\" uyarısını kabul edin (\"Advanced\" > \"Go to Levanter\" seçeneğine tıklayarak), yönlendirmeden sonra adres çubuğundaki tam URL'yi kopyalayın ve gönderin:\n`.gauth code <kopyalanan_url>`",
+      "desc": "YouTube Yaş Kısıtlaması, Google Drive, Takvim ve Görevler gibi özellikler için Google API kimlik doğrulamasını yönetin.",
+      "usage": "*Google Auth Komutları:*\\n\\n- `.gauth auth` — Kimlik doğrulama sürecini başlatır.\\n- `.gauth code <url_or_code>` — Doğrulama kodunu onaylar.\\n- `.gauth import` — `credentials.json` dosyasını içe aktarır (Dosyayı yanıtlayın).\\n- `.gauth status` — Mevcut kimlik doğrulama durumunu kontrol eder.\\n- `.gauth logout` — Bu oturum için kimlik bilgilerini temizler.\\n\\n*Not:* Google Auth genel YouTube özellikleri için isteğe bağlıdır ancak yaş kısıtlamalı videolar ve Google Drive/Takvim/Görevler entegrasyonları için gereklidir.",
+      "prompt": "*Google Kimlik Doğrulama Kurulum Kılavuzu:*\n\n1. *Proje Oluşturun:* https://console.cloud.google.com/ adresine gidin, \"Select a project\" > \"New Project\" seçeneğine tıklayın, adını \"Levanter\" koyun ve \"Create\" butonuna basın.\n2. *APIs Etkinleştirin:* \"APIs & Services\" > \"Library\" bölümüne gidin. \"Google Drive API\", \"Google Calendar API\" ve \"Google Tasks API\" aratıp etkinleştirin.\n3. *OAuth İzin Ekranı:* \"APIs & Services\" > \"OAuth consent screen\" bölümüne gidin. \"External\" seçin, gerekli alanları doldurun ve \"Audience\" bölümünde e-postanızı \"Test users\" kısmına ekleyin (ZORUNLU).\n4. *Kimlik Bilgileri:* \"APIs & Services\" > \"Credentials\" bölümüne gidin. \"Create Credentials\" > \"OAuth client ID\" butonuna tıklayın. Uygulama türü olarak \"Desktop app\" seçin, bir ad verin ve \"Create\" butonuna basın.\n5. *İndir:* Yeni Client ID'nizin yanındaki İndir (JSON) simgesine tıklayın. Kaydedin ve dosyayı yanıtlayarak `.gauth import` komutunu kullanın.\n6. *Yetkilendir:* Şimdi yetkilendirmek için aşağıdaki bağlantıya tıklayın:\n{0}\n\n7. *Tamamla:* Giriş yapın, \"Unverified app\" uyarısını kabul edin (\"Advanced\" > \"Go to Levanter\" seçeneğine tıklayarak), yönlendirmeden sonra adres çubuğundaki tam URL'yi kopyalayın ve gönderin:\n`.gauth code <kopyalanan_url>`",
       "success": "Kimlik doğrulama başarılı!",
       "import_success": "`credentials.json` başarıyla içe aktarıldı! Şimdi yetkilendirmek için `.gauth auth` kullanın.",
       "import_reply": "Lütfen bir `credentials.json` dosyasını yanıtlayın.",
@@ -872,6 +875,19 @@
       "error": "*Hata:* {0}",
       "url_prompt": "Lütfen geçerli bir URL sağlayın, bir medya mesajını etiketleyin veya alt komutları kullanın: list, del <id>, dl <id>.\nÖrnek: `gupload list`",
       "short_id_info": "\n\n*Not:* İndirme veya silme komutları için ID'nin yalnızca ilk 2-4 karakterini girmeniz yeterlidir."
+    },
+    "task": {
+      "desc": "Google Görevlerinizi Yönetin",
+      "usage": "Kullanım: task <list | lists | switch <isim> | add <metin> | del <id> | done <id> | update <id> <metin> | <metin>>",
+      "added": "Görev eklendi: *{0}*\nBitiş: {1}",
+      "deleted": "Görev silindi.",
+      "updated": "Görev *{0}* şu şekilde işaretlendi: *{1}*",
+      "list_empty": "Görev bulunamadı.",
+      "list_header": "📝 *Görevler ({0})*:\n",
+      "not_found": "Görev bulunamadı.",
+      "auth_required": "Lütfen *.gauth auth* kullanarak kimlik doğrulaması yapın ve Google Görevler izinlerini etkinleştirin.",
+      "list_lists": "📝 *Görev Listeleri*:\n",
+      "switched": "Varsayılan görev listesi *{0}* olarak değiştirildi."
     }
   }
 }
