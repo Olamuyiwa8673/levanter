@@ -1088,5 +1088,12 @@
       "remaining": "剩余：",
       "error_prefix": "HEROKU：{0}"
     }
+  },
+  "api": {
+    "title": "⚡ API 模式 — 快速开始",
+    "send": "发送文本消息：",
+    "endpoints": "接口：",
+    "note": "⚠️ 未设置 API_PUBLIC_URL — 媒体/webhook 下载链接将无法解析。请将其设置为你的公开基础网址。",
+    "locked": "⚠️ 未设置 API_KEY — api 已锁定"
   }
 }
