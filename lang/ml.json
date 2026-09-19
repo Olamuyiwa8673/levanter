@@ -46,7 +46,7 @@
     "screenshot_error": "Screenshot edukkaan pattiyilla. 📸❌",
     "id_missing": "ID kittiyilla. 🕵️",
     "not_on_whatsapp": "{0} WhatsApp-il illa. 👻",
-    "yt_auth_required": "Download fail aayi! YouTube authentication venam. 🗝️\n\n*Solutions:*\n1. *Google Auth:* `.gauth auth` use cheyyu.\n2. *YT_COOKIE:* `YT_COOKIE` environment variable set cheyyu.\nWiki: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\n\n*Error:* {0}"
+    "yt_auth_required": "Download fail aayi! YouTube authentication venam. 🗝️\n\n*Solutions:*\n1. *YouTube Login:* `.ytlogin` ayakku, account approve cheyyu.\n2. *YT_COOKIE:* `YT_COOKIE` environment variable set cheyyu.\nWiki: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\n\n*Error:* {0}"
   },
   "plugins": {
     "common": {
@@ -67,6 +67,7 @@
       "video_not_supported": "Ee bot-il music engine video downloads support cheyyilla.",
       "audio_disabled": "Music engine download fail aayi, YouTube audio off aanu.",
       "gemini_missing_api_key": "GEMINI_API_KEY illa",
+      "openrouter_missing_api_key": "OPENROUTER_API_KEY illa",
       "gemini_error": "error",
       "upscale_upload_failed": "Image upload aayilla",
       "upscale_invalid_response": "Upscale service-il ninnu invalid response",
@@ -263,6 +264,10 @@
       "goodbye_disable": "_Goodbye Off aayitto_",
       "goodbye_delete": "_Goodbye message delete aayi_",
       "goodbye_not_set": "_Adyam goodbye message set cheyyu!_\n\n> *Example:*\ngoodbye Bye &mention! Koode undayithinu nanni\n\nEnnitt use cheyyu: goodbye on"
+    },
+    "openrouter": {
+      "example": "*Example:* or Hi\n\nOPENROUTER_API_KEY venam (free, card illa). Optional variables:\n- OPENROUTER_MODEL (default: openai/gpt-oss-20b:free)\n- OPENROUTER_SYSTEM_MSG\n\nFree key nedukkuka: https://openrouter.ai/keys\nFree models: https://openrouter.ai/models?max_price=0",
+      "desc": "OpenRouter AI-yumaayi samsarikku (free models)"
     },
     "groq": {
       "example": "*Example:* groq Hi\n\nEe environment variables venel set cheyyaam:\n- GROQ_API_KEY\n- GROQ_MODEL\n- GROQ_SYSTEM_MSG\n\nKooduthal kariyangal ivide: https://console.groq.com/keys",
@@ -918,6 +923,15 @@
       "time": "Samayam",
       "id": "ID",
       "short_id_info": "\n\n*Note:* Delete command-u-maayi ID-yude adyam randu moonu aksharam mathram ezhuthiyaal madhi."
+    },
+    "ytlogin": {
+      "desc": ".song / .video download cheyyan YouTube account link cheyyu (device-code login).\n`.ytlogin`, `.ytlogin status`, allengil `.ytlogin logout` upayogikkuka.",
+      "status_in": "*YouTube:* login aayi ✅",
+      "status_out": "*YouTube:* login aayittilla. `.ytlogin` upayogikkuka.",
+      "logout": "*YouTube:* logout aayi.",
+      "prompt": "*YouTube Login*\n\n1. Thurakku: {0}\n2. Code type cheyyu: *{1}*\n3. Access approve cheyyu.\n\nApproval-inayi kaathirikkunnu… kazhinjaal ivide ariyikkam. Code pettennu expire aakum.",
+      "success": "*YouTube login success ✅*\n.song / .video ini ninte account upayogikkum.",
+      "failed": "*YouTube login fail:* {0}"
     },
     "gauth": {
       "desc": "YouTube Age Restriction, Google Drive, Calendar, pinne Tasks settings manage cheyyaan Google Auth upayogikkuka.",

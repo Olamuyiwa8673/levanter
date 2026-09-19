@@ -46,7 +46,7 @@
     "screenshot_error": "Error al tomar la captura. 📸❌",
     "id_missing": "Falta el ID. 🕵️",
     "not_on_whatsapp": "{0} no está en WhatsApp. 👻",
-    "yt_auth_required": "Error al descargar: YouTube requiere autenticación. 🗝️\n\n*Soluciones:*\n1. *Google Auth:* Usa `.gauth auth` para vincular tu cuenta de Google.\n2. *YT_COOKIE:* Configura la variable de entorno `YT_COOKIE`.\nWiki: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\n\n*Error:* {0}"
+    "yt_auth_required": "Error al descargar: YouTube requiere autenticación. 🗝️\n\n*Soluciones:*\n1. *Inicio de sesión de YouTube:* Envía `.ytlogin` y aprueba en tu cuenta.\n2. *YT_COOKIE:* Configura la variable de entorno `YT_COOKIE`.\nWiki: https://github.com/lyfe00011/levanter/wiki/yt%E2%80%90cookie\n\n*Error:* {0}"
   },
   "plugins": {
     "common": {
@@ -67,6 +67,7 @@
       "video_not_supported": "El motor de música no admite la descarga de vídeos en este bot.",
       "audio_disabled": "La descarga del motor de música falló y el audio de YouTube está desactivado.",
       "gemini_missing_api_key": "falta GEMINI_API_KEY",
+      "openrouter_missing_api_key": "falta OPENROUTER_API_KEY",
       "gemini_error": "error",
       "upscale_upload_failed": "Error al subir la imagen",
       "upscale_invalid_response": "Respuesta inválida del servicio de mejora",
@@ -263,6 +264,10 @@
       "goodbye_disable": "_Despedida desactivada_",
       "goodbye_delete": "_Mensaje de despedida eliminado_",
       "goodbye_not_set": "_¡Por favor establece un mensaje de despedida primero!_\n\n> *Ejemplo:*\ngoodbye ¡Adiós &mention! Gracias por estar con nosotros\n\nLuego usa: goodbye on"
+    },
+    "openrouter": {
+      "example": "*Ejemplo:* or Hola\n\nRequiere OPENROUTER_API_KEY (gratis, sin tarjeta). Variables opcionales:\n- OPENROUTER_MODEL (por defecto: openai/gpt-oss-20b:free)\n- OPENROUTER_SYSTEM_MSG\n\nObtén una clave gratis: https://openrouter.ai/keys\nModelos gratis: https://openrouter.ai/models?max_price=0",
+      "desc": "Pregunta a OpenRouter AI (modelos gratis)"
     },
     "groq": {
       "example": "*Ejemplo:* groq Hola\n\nDebes Agregar ApiKey, Opcionalmente puedes ajustar las demas Variables:\n- GROQ_API_KEY\n- GROQ_MODEL\n- GROQ_SYSTEM_MSG\n\n Para mas detalles ve a https://console.groq.com/keys",
@@ -918,6 +923,15 @@
       "time": "Hora",
       "id": "ID",
       "short_id_info": "\n\n*Nota:* Solo necesitas ingresar los primeros 2-4 caracteres del ID para el comando de eliminación."
+    },
+    "ytlogin": {
+      "desc": "Vincula una cuenta de YouTube para que .song / .video puedan descargar (inicio de sesión con código de dispositivo).\nUsa `.ytlogin`, `.ytlogin status` o `.ytlogin logout`.",
+      "status_in": "*YouTube:* sesión iniciada ✅",
+      "status_out": "*YouTube:* sin sesión. Usa `.ytlogin`.",
+      "logout": "*YouTube:* sesión cerrada.",
+      "prompt": "*Inicio de sesión de YouTube*\n\n1. Abre: {0}\n2. Introduce el código: *{1}*\n3. Aprueba el acceso.\n\nEsperando la aprobación… te avisaré aquí cuando termine. El código caduca pronto.",
+      "success": "*Sesión de YouTube iniciada ✅*\n.song / .video ahora usarán tu cuenta.",
+      "failed": "*Error al iniciar sesión en YouTube:* {0}"
     },
     "gauth": {
       "desc": "Gestiona la autenticación de la API de Google para funciones como Restricción de Edad en YouTube, Google Drive, Calendar y Tasks.",
