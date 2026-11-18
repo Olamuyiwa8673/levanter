@@ -18,7 +18,7 @@ const normalizeMode = (raw) => {
 const MODE = normalizeMode(process.env.API_MODE)
 module.exports = {
   VERSION: require('./package.json').version,
-  SESSION_ID: (process.env.SESSION_ID || 'levanter_3084e092cc0b31486f8cb56ec345a48e2a').trim(),
+  SESSION_ID: (process.env.SESSION_ID || 'levanter_19d9db214cccc24b6396dd37f61737c232').trim(),
   DATABASE:
     DATABASE_URL === databasePath
       ? new Sequelize({
